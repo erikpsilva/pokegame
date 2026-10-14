@@ -12,9 +12,9 @@ import {
 import { Head, Link } from '@inertiajs/react';
 import { useEffect, useRef, useState } from 'react';
 
-type DemoProps = { mapFolder?: string; mapName?: string };
+type DemoProps = { mapFolder?: string; mapName?: string; customArt?: boolean };
 
-export default function DemoPallet({ mapFolder = 'pallet-town', mapName = 'Pallet Town' }: DemoProps) {
+export default function DemoPallet({ mapFolder = 'pallet-town', mapName = 'Pallet Town', customArt = false }: DemoProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const held = useRef(new Map<string, Direction>());
     const reset = useRef<(() => void) | null>(null);
@@ -75,7 +75,7 @@ export default function DemoPallet({ mapFolder = 'pallet-town', mapName = 'Palle
             }),
             loadImage(base + `game/maps/${activeFolder}/map.png`),
             loadImage(base + 'game/sprites/pokemon/overworld/0025.png'),
-            loadImage(base + 'game/sprites/trainers/red-walk.png'),
+            loadImage(base + `game/sprites/trainers/${customArt ? 'red-pokecity.png' : 'red-walk.png'}`),
         ])
             .then(([map, background, pikachu, trainer]) => {
                 if (disposed) return;
@@ -89,10 +89,21 @@ export default function DemoPallet({ mapFolder = 'pallet-town', mapName = 'Palle
                 context.imageSmoothingEnabled = false;
                 const frameWidth = pikachu.width / 4;
                 const frameHeight = pikachu.height / 4;
-                const spriteScale = 0.714025;
+                const spriteScale = customArt ? 2.3 : 0.714025;
+                const trainerWidth = trainer.width / (customArt ? 5 : 4);
+                const trainerHeight = trainer.height / 4;
+                const trainerRows = customArt ? { down: 0, up: 1, left: 2, right: 3 } : directionRows;
                 let current = { ...map.spawn };
                 let target: Position | null = null;
                 let follower = followerSpawn(map, initialFacing);
+                const makeTrail = () => {
+                    const positions = [{ ...map.spawn }];
+                    const behind: Record<Direction, Direction> = { down: 'up', up: 'down', left: 'right', right: 'left' };
+                    for (let i = 0; i < 3; i++) positions.push(destination(map, positions.at(-1)!, behind[initialFacing]) ?? positions.at(-1)!);
+                    return positions;
+                };
+                let trail = makeTrail();
+                if (customArt) follower = { ...trail[3] };
                 let followerTarget: Position | null = null;
                 let followerFacing: Direction = initialFacing;
                 let facing: Direction = initialFacing;
@@ -109,6 +120,8 @@ export default function DemoPallet({ mapFolder = 'pallet-town', mapName = 'Palle
                     current = { ...map.spawn };
                     target = null;
                     follower = followerSpawn(map, initialFacing);
+                    trail = makeTrail();
+                    if (customArt) follower = { ...trail[3] };
                     followerTarget = null;
                     followerFacing = 'down';
                     progress = 0;
@@ -131,7 +144,7 @@ export default function DemoPallet({ mapFolder = 'pallet-town', mapName = 'Palle
                         facing = pressed;
                         target = destination(map, current, facing);
                         if (target) {
-                            followerTarget = { ...current };
+                            followerTarget = { ...(customArt ? trail[2] : current) };
                             followerFacing = directionBetween(follower, followerTarget, followerFacing);
                             setStatus(`Explorando ${map.name}`);
                         } else setStatus('Caminho bloqueado');
@@ -143,6 +156,7 @@ export default function DemoPallet({ mapFolder = 'pallet-town', mapName = 'Palle
                             follower = followerTarget ?? follower;
                             followerTarget = null;
                             current = target;
+                            trail = [{ ...current }, ...trail].slice(0, 4);
                             target = null;
                             progress = 0;
                             steps++;
@@ -170,7 +184,9 @@ export default function DemoPallet({ mapFolder = 'pallet-town', mapName = 'Palle
                         canvas.width = width;
                         canvas.height = height;
                     }
-                    const zoom = Math.max(viewport.width / 384, viewport.height / 320) * 0.704;
+                    const zoom = customArt
+                        ? Math.max(viewport.width / background.width, viewport.height / background.height) * 1.1
+                        : Math.max(viewport.width / 384, viewport.height / 320) * 0.704;
                     const cameraX =
                         background.width < viewport.width / zoom
                             ? (background.width - viewport.width / zoom) / 2
@@ -187,9 +203,21 @@ export default function DemoPallet({ mapFolder = 'pallet-town', mapName = 'Palle
                     const followerX = follower.x + (followerTarget ? (followerTarget.x - follower.x) * progress : 0);
                     const followerY = follower.y + (followerTarget ? (followerTarget.y - follower.y) * progress : 0);
                     // Visible trainer height is exactly 1.3 times Pikachu's reference height (18px vs 19px).
-                    const trainerScale = spriteScale * (18 / 19) * 1.3;
+                    const trainerScale = customArt ? 0.28 : spriteScale * (18 / 19) * 1.3;
                     const actors = [
-                        { image: trainer, x, y, facing, frame: target ? frame : 1, scale: trainerScale, shadow: 3 },
+                        {
+                            image: trainer,
+                            x,
+                            y,
+                            facing,
+                            frame: target ? (customArt ? Math.floor(walkTime / 85) % 5 : frame) : 1,
+                            scale: trainerScale,
+                            shadow: customArt ? 12 : 3,
+                            width: trainerWidth,
+                            height: trainerHeight,
+                            row: trainerRows[facing],
+                            padding: customArt ? 8 : 6,
+                        },
                         {
                             image: pikachu,
                             x: followerX,
@@ -198,6 +226,10 @@ export default function DemoPallet({ mapFolder = 'pallet-town', mapName = 'Palle
                             frame: followerTarget ? frame : 0,
                             scale: spriteScale,
                             shadow: 2,
+                            width: frameWidth,
+                            height: frameHeight,
+                            row: directionRows[followerFacing],
+                            padding: 6,
                         },
                     ].sort((a, b) => a.y - b.y);
                     for (const actor of actors) {
@@ -207,14 +239,14 @@ export default function DemoPallet({ mapFolder = 'pallet-town', mapName = 'Palle
                         context.fill();
                         context.drawImage(
                             actor.image,
-                            actor.frame * frameWidth,
-                            directionRows[actor.facing] * frameHeight,
-                            frameWidth,
-                            frameHeight,
-                            actor.x * 16 + 8 - (frameWidth * actor.scale) / 2,
-                            actor.y * 16 + 10 - (frameHeight - 6) * actor.scale,
-                            frameWidth * actor.scale,
-                            frameHeight * actor.scale,
+                            actor.frame * actor.width,
+                            actor.row * actor.height,
+                            actor.width,
+                            actor.height,
+                            actor.x * 16 + 8 - (actor.width * actor.scale) / 2,
+                            actor.y * 16 + 10 - (actor.height - actor.padding) * actor.scale,
+                            actor.width * actor.scale,
+                            actor.height * actor.scale,
                         );
                     }
                     canvas.dataset.map = activeFolder;
@@ -245,7 +277,7 @@ export default function DemoPallet({ mapFolder = 'pallet-town', mapName = 'Palle
             window.removeEventListener('blur', clear);
             document.removeEventListener('visibilitychange', visibility);
         };
-    }, [retry, mapFolder, activeFolder, scene]);
+    }, [retry, mapFolder, activeFolder, scene, customArt]);
 
     const touch = (direction: Direction, active: boolean) => {
         if (active) held.current.set('touch', direction);

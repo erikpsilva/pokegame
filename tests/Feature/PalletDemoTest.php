@@ -7,6 +7,18 @@ use Tests\TestCase;
 
 class PalletDemoTest extends TestCase
 {
+    public function test_pokecity_demo_uses_the_supplied_art(): void
+    {
+        $this->get('/demo/pokecity')->assertOk()->assertInertia(fn (Assert $page) => $page
+            ->component('demo-pallet')->where('mapFolder', 'pokecity')->where('customArt', true));
+    }
+
+    public function test_pokemon_x_demo_is_available_without_login(): void
+    {
+        $this->get('/demo/pokemon-x')->assertOk()
+            ->assertInertia(fn (Assert $page) => $page->component('demo-pokemon-x'));
+    }
+
     public function test_home_is_available_without_login(): void
     {
         $this->get('/')->assertOk()->assertInertia(fn (Assert $page) => $page->component('welcome'));

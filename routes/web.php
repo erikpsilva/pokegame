@@ -8,6 +8,12 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/demo/pallet-town', fn () => Inertia::render('demo-pallet'))->name('demo.pallet');
+Route::get('/demo/pokemon-x', fn () => Inertia::render('demo-pokemon-x'))->name('demo.pokemonx');
+Route::get('/demo/pokecity', fn () => Inertia::render('demo-pallet', [
+    'mapFolder' => 'pokecity',
+    'mapName' => 'PokeCity',
+    'customArt' => true,
+]))->name('demo.pokecity');
 
 Route::get('/demo/black-white', fn () => Inertia::render('demo-pallet', [
     'mapFolder' => 'nuvema-town',

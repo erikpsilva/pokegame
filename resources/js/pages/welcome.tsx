@@ -3,6 +3,20 @@ import { Head } from '@inertiajs/react';
 export default function Welcome() {
     const examples = [
         {
+            title: 'Exemplo PokeCity',
+            description: 'Red e Pikachu no mapa enviado, com caminhos e obstáculos.',
+            url: route('demo.pokecity'),
+            label: 'MAPA PERSONALIZADO',
+            color: 'text-emerald-300',
+        },
+        {
+            title: 'Exemplo Pokémon X',
+            description: 'Red e Pikachu explorando o mapa 3D de Vaniville Town.',
+            url: route('demo.pokemonx'),
+            label: 'KALOS',
+            color: 'text-blue-300',
+        },
+        {
             title: 'Exemplo Fire Red',
             description: 'Personagem explorando Pallet Town com Pikachu seguindo.',
             url: route('demo.pallet'),
