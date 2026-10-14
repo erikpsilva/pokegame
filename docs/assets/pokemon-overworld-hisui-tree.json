@@ -1,0 +1,162 @@
+[
+  {
+    "path": "scarlet-violet/graphics/characters/0899.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "fc9ba6ddc37729030bb93e113884d64e87a9df3a",
+    "size": 2975,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/fc9ba6ddc37729030bb93e113884d64e87a9df3a"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0899s.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "3557b154f870f5fb06f149d54b51b2ca47216386",
+    "size": 2570,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/3557b154f870f5fb06f149d54b51b2ca47216386"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0900.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "0adf7f12bf2dd1f834aeaa748aa6c1914b70efbc",
+    "size": 3085,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/0adf7f12bf2dd1f834aeaa748aa6c1914b70efbc"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0900s.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "df2718927d5611975e38acbc4911813dc72a00a4",
+    "size": 3085,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/df2718927d5611975e38acbc4911813dc72a00a4"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0901.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "d5bdf6b255ccf83c167a872497a3b25cd354a49f",
+    "size": 2551,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/d5bdf6b255ccf83c167a872497a3b25cd354a49f"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0901_01.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "017dc93f5463f2ad7d562b2bb35cfee5eb35b015",
+    "size": 2615,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/017dc93f5463f2ad7d562b2bb35cfee5eb35b015"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0901s.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "2248c70c9ebeec373f5c388a114fb59516e5617a",
+    "size": 2542,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/2248c70c9ebeec373f5c388a114fb59516e5617a"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0901s_01.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "d3e56a745782b2ad41c0c0b35b242e80560aaa27",
+    "size": 3153,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/d3e56a745782b2ad41c0c0b35b242e80560aaa27"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0902.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "30cae7fcfb8bb84dfbe41ad1d7b644b783075e2b",
+    "size": 2920,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/30cae7fcfb8bb84dfbe41ad1d7b644b783075e2b"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0902_01.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "0d2d37a0c624b7236fb09a60f3ef002b28eb1956",
+    "size": 2520,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/0d2d37a0c624b7236fb09a60f3ef002b28eb1956"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0902s.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "313ffb421171e7654a86bffa03081b34f0688869",
+    "size": 2929,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/313ffb421171e7654a86bffa03081b34f0688869"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0902s_01.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "93dd907c374b6873c5a6630f3b201f02adddf177",
+    "size": 2451,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/93dd907c374b6873c5a6630f3b201f02adddf177"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0903.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "1e0b9a2dce118fba17f0488855d8333168e606be",
+    "size": 2878,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/1e0b9a2dce118fba17f0488855d8333168e606be"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0903s.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "19a44855b4ef780f63f5c97dce4e9ecd05a5d7d0",
+    "size": 2835,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/19a44855b4ef780f63f5c97dce4e9ecd05a5d7d0"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0904.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "8e9ab38df177b3d825e27725a7f99f08e6ba763c",
+    "size": 2868,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/8e9ab38df177b3d825e27725a7f99f08e6ba763c"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0904s.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "cf600eb99cdb32d1e7b8d06e70538c500d280d9b",
+    "size": 2867,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/cf600eb99cdb32d1e7b8d06e70538c500d280d9b"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0905.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "171b943ffba1bb624be184b60c8050a987ce6450",
+    "size": 4563,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/171b943ffba1bb624be184b60c8050a987ce6450"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0905_01.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "4ec83cf5dbe8893364a77e2f171f758811246467",
+    "size": 4496,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/4ec83cf5dbe8893364a77e2f171f758811246467"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0905s.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "4a79f53a92166b7ee4409846318399b39b391181",
+    "size": 4562,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/4a79f53a92166b7ee4409846318399b39b391181"
+  },
+  {
+    "path": "scarlet-violet/graphics/characters/0905s_01.png",
+    "mode": "100644",
+    "type": "blob",
+    "sha": "48cf01095a2dafd15271d394895e6058116422e9",
+    "size": 4500,
+    "url": "https://api.github.com/repos/PokemonWorkshop/GameDataPacks/git/blobs/48cf01095a2dafd15271d394895e6058116422e9"
+  }
+]
