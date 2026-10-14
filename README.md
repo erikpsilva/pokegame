@@ -8,6 +8,10 @@ Inicie Apache e MySQL no painel do XAMPP e abra http://localhost/pokegame/public
 
 Banco exclusivo: `pokegame_db`. Credenciais locais estão no `.env`, ignorado pelo Git. Nenhuma conta foi pré-criada. Emails de desenvolvimento são gravados em `storage/logs/laravel.log`.
 
+Demo navegável: http://localhost/pokegame/public/demo/pallet-town — Pikachu em Pallet Town, com W/A/S/D, setas e controles de toque. Veja [origem do mapa e escopo](docs/assets/pallet-town.md).
+
+A home **Projeto Jogo** lista Exemplo Fire Red e Exemplo Black White, ambos abrindo em novas abas. O segundo está em http://localhost/pokegame/public/demo/black-white e usa Nuvema Town; veja [origem e colisões da demo](docs/assets/nuvema-town.md).
+
 ## Instalar
 
 Requisitos: PHP 8.3 ou 8.4, Composer, Node.js 22.12+ ou 24 e MySQL/MariaDB. No PowerShell, dentro do projeto:
@@ -56,3 +60,7 @@ npm.cmd run build
 ```
 
 Os testes do starter usam SQLite em memória, separado do banco local. As migrations e o acesso HTTP local também são verificados com MariaDB.
+
+As duas demos permitem entrar e sair das casas com personagem e Pikachu. FireRed usa interiores originais; Black/White usa interiores adaptados para a demo. Veja [casas e escadas](docs/assets/house-interiors.md).
+
+A saída norte das duas cidades conecta à Rota 1, com passagem de ida e volta e Pikachu seguindo o personagem. Veja [mapas e conexões da Rota 1](docs/assets/route1.md).
